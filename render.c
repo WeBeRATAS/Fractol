@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:08:46 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/25 12:45:11 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/08/25 13:24:11 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = (map(x, -2, +2, 0, WIDTH * fractal->zoom) + fractal->shift_x);
-	z.y = (map(y, +2, -2, 0, HEIGHT * fractal->zoom) + fractal->shift_y);
+	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	mandel_vs_julia(&z, &c, fractal);
 	while(i < fractal->iterations_definition)
 	{
@@ -59,7 +59,6 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		++i;
 	}
 	my_pixel_put(x, y, &fractal->img, WHITE);
-
 }
 
 void	fractal_render(t_fractal *fractal)
@@ -72,9 +71,7 @@ void	fractal_render(t_fractal *fractal)
 	{
 		x = -1;
 		while (++x < WIDTH)
-		{
 			handle_pixel(x, y, fractal);
-		}
 	}
 	mlx_put_image_to_window(fractal->mlx_connection,
 							fractal->mlx_window,
