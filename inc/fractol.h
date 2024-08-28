@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:19:36 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/27 14:09:28 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/08/28 20:11:57 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 # include "../printf/ft_printf.h"
 # include "../minilibx-linux/mlx.h"
 
-# define ERROR_MESSAGE "Please enter \n\t./fractol mandelbrot or \n\t./fractol julia <value_1> <value_2> \n"
-# define WIDTH	1200
+# define ERROR_MESSAGE "Please enter \n\t./fractol mandelbrot or \n\t \
+						./fractol julia <value_1> <value_2> \n"
+# define WIDTH	1600
 # define HEIGHT	1200
 
 //colors
@@ -82,7 +83,8 @@ typedef struct s_complex
 void		putstr_fd(char *s, int fd);
 double		atoidbl(char *s);
 void		fractal_init(t_fractal *fractal);
-double		map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
+double		map(double unscaled_num, double new_min, \
+			double new_max, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 void		fractal_render(t_fractal *fractal);

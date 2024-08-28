@@ -6,7 +6,7 @@
 /*   By: rbuitrag <rbuitrag@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 10:43:59 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/01/31 15:35:48 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/08/28 17:46:53 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int	main(void)
 	printf("El resultado de FTSTRCHR es: %s\n", ftstr);
 	if (resstr != NULL)
 	{
-		printf("Funcion strchr dice esta en posicion: %ld. \n", (resstr-src));
+		printf("Strchr dice en posicion: %ld. \n", (resstr-src));
 	} else
 			printf("Funcion strchr dice que NO esta: %c\n", c);
 	if (ftstr != NULL)
 	{
-		printf("Funcion FT_strchr dice que esta en posicion: %ld. \n", (ftstr-src));
+		printf("FT_strchr dice en posicion: %ld. \n", (ftstr-src));
 	} else
 		printf("Funcion ft_strchr dice que NO esta: %c\n", c);
 }*/

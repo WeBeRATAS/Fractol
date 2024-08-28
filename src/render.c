@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:08:46 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/28 16:38:26 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/08/28 20:19:32 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	my_pixel_put(int x, int y, t_image *img, int color)
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
-static  void mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
+static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
@@ -42,15 +42,15 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
-	z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	mandel_vs_julia(&z, &c, fractal);
-	while(i < fractal->iterations_definition)
+	while (i < fractal->iterations_definition)
 	{
 		z = sum_complex(square_complex(z), c);
-		if((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
+		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, WHITE, BLACK, 0, fractal->iterations_definition);
+			color = map(i, WHITE, BLACK, fractal->iterations_definition);
 			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
@@ -65,14 +65,12 @@ void	fractal_render(t_fractal *fractal)
 	int	y;
 
 	y = -1;
-	while(++y < HEIGHT)
+	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 			handle_pixel(x, y, fractal);
 	}
-	mlx_put_image_to_window(fractal->mlx_connection,
-							fractal->mlx_window,
-							fractal->img.img_ptr,
-							fractal->zoom, 0);
+	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, \
+	fractal->img.img_ptr, fractal->zoom, 0);
 }

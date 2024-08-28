@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 09:58:10 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/28 16:34:42 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/08/28 20:19:57 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,10 @@ int	key_handler(int keysym, t_fractal *fractal)
 		fractal->shift_y -= (0.5 * fractal->zoom);
 	if (keysym == XK_Down)
 		fractal->shift_y += (0.5 * fractal->zoom);
-	if ((keysym == XK_plus) || (keysym == KEY_PLUS) || (keysym == KEY_EQ)) 
+	if ((keysym == XK_plus) || (keysym == KEY_PLUS) || (keysym == KEY_EQ))
 		fractal->iterations_definition += 8;
 	if ((keysym == XK_minus) || (keysym == KEY_MINUS))
 		fractal->iterations_definition -= 8;
-	/*if (keysym == XK_c)
-		change_color(fractal);
-	if (keysym == XK_r*/
 	fractal_render(fractal);
 	return (0);
 }
@@ -55,7 +52,7 @@ int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 		fractal->shift_x += (0.5 * fractal->zoom);
 	if (button == Button3)
 		fractal->shift_x -= (0.5 * fractal->zoom);
-    (void)x;
+	(void)x;
 	(void)y;
 	(void)fractal;
 	ft_printf("%d\n", button);
@@ -67,9 +64,9 @@ int	julia_track(int x, int y, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
-		fractal->julia_x = (map(x, -2, +2, 0, WIDTH * fractal->zoom)
+		fractal->julia_x = (map(x, -2, +2, WIDTH * fractal->zoom)
 				+ fractal->shift_x);
-		fractal->julia_y = (map(y, +2, -2, 0, HEIGHT * fractal->zoom)
+		fractal->julia_y = (map(y, +2, -2, HEIGHT * fractal->zoom)
 				+ fractal->shift_x);
 		fractal_render(fractal);
 	}
