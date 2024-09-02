@@ -27,7 +27,8 @@ CFILES =  main.c\
           render.c\
           events.c\
           math_utils.c\
-
+		  fractal_utils.c\
+		  
 OBJS = $(addprefix src/, $(CFILES:.c=.o))
 
 all: library $(NAME)

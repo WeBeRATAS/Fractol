@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:28:25 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/28 18:11:54 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:03:45 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	putstr_fd(char *s, int fd)
 	if (*s != '\0')
 	{
 		if (write(fd, s, 1) < 0)
-			return (-1);
+			return ;
 		putstr_fd(s + 1, fd);
 	}
 }

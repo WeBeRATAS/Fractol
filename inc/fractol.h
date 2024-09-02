@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:19:36 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/28 20:11:57 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:39:26 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 # include "../minilibx-linux/mlx.h"
 
 # define ERROR_MESSAGE "Please enter \n\t./fractol mandelbrot or \n\t \
-						./fractol julia <value_1> <value_2> \n"
-# define WIDTH	1600
-# define HEIGHT	1200
+	./fractol julia <value_1> <value_2> \n"
+# define WIDTH	960
+# define HEIGHT	960
 
 //colors
 # define BLACK			0x000000
@@ -92,5 +92,8 @@ int			key_handler(int keysym, t_fractal *fractal);
 int			close_handler(t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, t_fractal *fractal);
 int			julia_track(int x, int y, t_fractal *fractal);
+void		fractal_cleanup(t_fractal *fractal);
+void		init_connection_and_window(t_fractal *fractal);
+void		init_image(t_fractal *fractal);
 
 #endif
