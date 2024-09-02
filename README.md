@@ -89,6 +89,7 @@ Este proyecto genera fractales de Mandelbrot y Julia utilizando la biblioteca `m
 ## Archivos Adicionales
 
 ### string_utils.c
+**************************
 
 **Descripción**: Este archivo contiene funciones auxiliares para manipulación de cadenas y conversión de cadenas a números.
 
