@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:19:36 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/02 12:39:26 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:00:09 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "../minilibx-linux/mlx.h"
 
 # define ERROR_MESSAGE "Please enter \n\t./fractol mandelbrot or \n\t \
-	./fractol julia <value_1> <value_2> \n"
+	./fractol julia <value_num_float> <value_num_float> \n"
 # define WIDTH	960
 # define HEIGHT	960
 
