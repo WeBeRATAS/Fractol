@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:08:46 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/08/28 20:19:32 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:07:12 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	my_pixel_put(int x, int y, t_image *img, int color)
 
 static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 6))
 	{
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;

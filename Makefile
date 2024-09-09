@@ -6,7 +6,7 @@
 #    By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 09:53:34 by rbuitrag          #+#    #+#              #
-#    Updated: 2024/08/27 10:07:52 by rbuitrag         ###   ########.fr        #
+#    Updated: 2024/09/09 16:14:51 by rbuitrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fractol
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=leak
+CFLAGS = -Wall -Werror -Wextra
 
 HEADER = inc/fractol.h
 LIBFT = libft/libft.a
@@ -38,7 +38,7 @@ $(NAME): $(OBJS)
 		$(MLX_A) -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11\
 		-lm -lz -o $(NAME)
 
-%.o: %.c $(HEADER)
+%.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 library:

@@ -6,7 +6,7 @@
 /*   By: rbuitrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 09:58:10 by rbuitrag          #+#    #+#             */
-/*   Updated: 2024/09/02 16:32:02 by rbuitrag         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:40:56 by rbuitrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	key_handler(int keysym, t_fractal *fractal)
 	if (keysym == XK_Escape)
 		close_handler(fractal);
 	if (keysym == XK_Left)
-		fractal->shift_x += (0.5 * fractal->zoom);
-	if (keysym == XK_Right)
 		fractal->shift_x -= (0.5 * fractal->zoom);
+	if (keysym == XK_Right)
+		fractal->shift_x += (0.5 * fractal->zoom);
 	if (keysym == XK_Up)
 		fractal->shift_y += (0.5 * fractal->zoom);
 	if (keysym == XK_Down)
@@ -60,7 +60,7 @@ int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 
 int	julia_track(int x, int y, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 6))
 	{
 		fractal->julia_x = (map(x, -2, +2, WIDTH) * fractal->zoom) \
 		+ fractal->shift_x;
